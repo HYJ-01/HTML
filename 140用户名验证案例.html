@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<style>
+			.b {
+				color: red;
+			}
+			.a {
+				color: green;
+			}
+		</style>
+		<input
+			style="border-radius: 5px; font-size: larger; height: 35px"
+			placeholder="   请输入用户名" />
+		<span style="display: inline-block; height: 35px"></span>
+		<script>
+			const input = document.querySelector('input');
+			const span = document.querySelector('span');
+			const reg = /^[a-zA-Z0-9-_!]{6,10}$/;
+			input.addEventListener('blur', function () {
+				if (reg.test(this.value)) {
+					span.innerHTML = '用户名可用';
+					span.className = 'a';
+				} else {
+					span.innerHTML = '用户名不可用';
+					span.className = 'b';
+				}
+			});
+		</script>
+	</body>
+</html>
